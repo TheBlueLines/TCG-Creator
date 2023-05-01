@@ -69,32 +69,32 @@ namespace TCG_Creator
 		{
 			if (File.Exists(path))
 			{
-                foreach (string line in File.ReadLines(path))
-                {
-                    string temp = Core.Crimp(line);
-                    if (!temp.StartsWith('#') && temp.Contains('='))
-                    {
-                        string[] tmp = temp.Split('=');
-                        if (tmp[0] == "countFrom" && int.TryParse(tmp[1], out int x))
-                        {
-                            countFrom = x;
-                        }
-                        else if (tmp[0] == "baseItem" && tmp[1].StartsWith('"') && tmp[1].EndsWith('"'))
-                        {
-                            baseItem = tmp[1][1..][..^1];
-                        }
-                    }
-                }
-            }
+				foreach (string line in File.ReadLines(path))
+				{
+					string temp = Core.Crimp(line);
+					if (!temp.StartsWith('#') && temp.Contains('='))
+					{
+						string[] tmp = temp.Split('=');
+						if (tmp[0] == "countFrom" && int.TryParse(tmp[1], out int x))
+						{
+							countFrom = x;
+						}
+						else if (tmp[0] == "baseItem" && tmp[1].StartsWith('"') && tmp[1].EndsWith('"'))
+						{
+							baseItem = tmp[1][1..][..^1];
+						}
+					}
+				}
+			}
 			if (baseItem == null)
 			{
-				baseItem = "knowledge_book";
-            }
-            if (countFrom == null)
-            {
-                countFrom = 0;
-            }
-        }
+				baseItem = "command_block";
+			}
+			if (countFrom == null)
+			{
+				countFrom = 0;
+			}
+		}
 		public void Save(string path)
 		{
 			string[] lines = { "# TCG Creator (Made by TheBlueLines)", "# Created on: " + DateTime.Now, "baseItem = \"" + baseItem + "\"", "countFrom = " + countFrom };

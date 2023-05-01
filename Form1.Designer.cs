@@ -34,17 +34,21 @@
             loadImagesToolStripMenuItem = new ToolStripMenuItem();
             toolsToolStripMenuItem = new ToolStripMenuItem();
             setDisplayToolStripMenuItem = new ToolStripMenuItem();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
             list = new ListBox();
             picture = new PictureBox();
             make = new Button();
-            settingsToolStripMenuItem = new ToolStripMenuItem();
+            info = new Label();
+            search = new TextBox();
+            selectedToolStripMenuItem = new ToolStripMenuItem();
+            giveCommandToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picture).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolsToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, toolsToolStripMenuItem, selectedToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(745, 24);
@@ -75,9 +79,16 @@
             // setDisplayToolStripMenuItem
             // 
             setDisplayToolStripMenuItem.Name = "setDisplayToolStripMenuItem";
-            setDisplayToolStripMenuItem.Size = new Size(180, 22);
+            setDisplayToolStripMenuItem.Size = new Size(116, 22);
             setDisplayToolStripMenuItem.Text = "Display";
             setDisplayToolStripMenuItem.Click += setDisplayToolStripMenuItem_Click;
+            // 
+            // settingsToolStripMenuItem
+            // 
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(116, 22);
+            settingsToolStripMenuItem.Text = "Settings";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // list
             // 
@@ -85,7 +96,7 @@
             list.Font = new Font("Roboto", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             list.FormattingEnabled = true;
             list.ItemHeight = 33;
-            list.Location = new Point(12, 27);
+            list.Location = new Point(12, 73);
             list.Name = "list";
             list.Size = new Size(200, 464);
             list.TabIndex = 1;
@@ -103,7 +114,7 @@
             // make
             // 
             make.Font = new Font("Roboto", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            make.Location = new Point(12, 497);
+            make.Location = new Point(12, 542);
             make.Name = "make";
             make.Size = new Size(200, 42);
             make.TabIndex = 3;
@@ -111,18 +122,50 @@
             make.UseVisualStyleBackColor = true;
             make.Click += make_Click;
             // 
-            // settingsToolStripMenuItem
+            // info
             // 
-            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(180, 22);
-            settingsToolStripMenuItem.Text = "Settings";
-            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
+            info.Font = new Font("Roboto", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            info.Location = new Point(218, 542);
+            info.Name = "info";
+            info.Size = new Size(512, 42);
+            info.TabIndex = 4;
+            info.Text = "Made by TheBlueLines";
+            info.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // search
+            // 
+            search.Font = new Font("Roboto", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            search.ForeColor = Color.DarkGray;
+            search.Location = new Point(12, 27);
+            search.Name = "search";
+            search.Size = new Size(200, 40);
+            search.TabIndex = 5;
+            search.Text = "Search";
+            search.TextChanged += search_TextChanged;
+            search.Enter += search_Enter;
+            search.Leave += search_Leave;
+            // 
+            // selectedToolStripMenuItem
+            // 
+            selectedToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { giveCommandToolStripMenuItem });
+            selectedToolStripMenuItem.Name = "selectedToolStripMenuItem";
+            selectedToolStripMenuItem.Size = new Size(63, 20);
+            selectedToolStripMenuItem.Text = "Selected";
+            // 
+            // giveCommandToolStripMenuItem
+            // 
+            giveCommandToolStripMenuItem.Name = "giveCommandToolStripMenuItem";
+            giveCommandToolStripMenuItem.Size = new Size(180, 22);
+            giveCommandToolStripMenuItem.Text = "Give Command";
+            giveCommandToolStripMenuItem.Click += giveCommandToolStripMenuItem_Click;
             // 
             // Base
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(745, 551);
+            ClientSize = new Size(745, 591);
+            Controls.Add(search);
+            Controls.Add(info);
             Controls.Add(make);
             Controls.Add(picture);
             Controls.Add(list);
@@ -149,5 +192,9 @@
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem setDisplayToolStripMenuItem;
         private ToolStripMenuItem settingsToolStripMenuItem;
+        private Label info;
+        private TextBox search;
+        private ToolStripMenuItem selectedToolStripMenuItem;
+        private ToolStripMenuItem giveCommandToolStripMenuItem;
     }
 }
